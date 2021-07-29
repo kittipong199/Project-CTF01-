@@ -13,13 +13,13 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ChatComponent } from './containers/chat/chat.component';
 import { HomeComponent } from './home/home.component';
+import { UserComponent } from './user/user.component';
 
 
 const routes: Routes =[
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: 'home'
+    component: HomeComponent
   },
   {
     path:'login',
@@ -41,7 +41,8 @@ const routes: Routes =[
     RegisterComponent,
     LoginComponent,
     ChatComponent,
-    HomeComponent
+    HomeComponent,
+    UserComponent
     
   ],
   imports: [

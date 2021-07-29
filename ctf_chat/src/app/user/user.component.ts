@@ -1,5 +1,6 @@
 import { Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { NgModule } from '@angular/core';
 //import { EventEmitter } from 'stream';
 
 @Component({
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+
+ 
  // @Output() userNameEvent = new EventEmitter<string>();
   userName = '';
 
