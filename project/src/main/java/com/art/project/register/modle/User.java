@@ -1,4 +1,5 @@
-package com.project.register.model;
+package com.art.project.register.modle;
+
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,7 +10,7 @@ import javax.persistence.GenerationType;
 
 
 @Entity
-@Table(name = "project")
+@Table(name = "register")
 public class User {
 
 	

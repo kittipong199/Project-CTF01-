@@ -1,10 +1,10 @@
-package com.project.chatv1;
+package com.art.project;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Chatv1ApplicationTests {
+class ProjectApplicationTests {
 
 	@Test
 	void contextLoads() {

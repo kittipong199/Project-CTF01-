@@ -3,12 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatSliderModule } from '@angular/material/slider';
 import { CommonModule } from '@angular/common';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AppComponent } from './app.component';
 import { BackendService } from './backend.service';
 import {  FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
+import { AppRoutingModule } from './app-routing.module';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ChatComponent } from './containers/chat/chat.component';
@@ -16,7 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 
 
-const routes: Routes =[
+/*const routes: Routes =[
   {
     path: '',
     component: HomeComponent
@@ -34,7 +35,7 @@ const routes: Routes =[
     component: ChatComponent
   }
 ];
-
+*/
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,9 @@ const routes: Routes =[
     FormsModule,
     MatSliderModule,
     CommonModule,
-    RouterModule.forRoot(routes)
+    AppRoutingModule,
+    HttpClientModule
+    
     
   ],
   

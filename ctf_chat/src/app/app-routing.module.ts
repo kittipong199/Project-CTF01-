@@ -1,8 +1,7 @@
-/*import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {  FormsModule } from '@angular/forms';
 
+import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ChatComponent } from './containers/chat/chat.component';
@@ -11,8 +10,7 @@ import { ChatComponent } from './containers/chat/chat.component';
 const routes: Routes =[
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: 'root'
+    component: HomeComponent
   },
   {
     path:'login',
@@ -29,18 +27,12 @@ const routes: Routes =[
 ];
 
 @NgModule({
-  declarations: [
-    
-    RegisterComponent,
-    LoginComponent
-  ],
+  
   imports: [
-    CommonModule,
-    FormsModule,
-    CommonModule,
-   
+  
+  
     RouterModule.forRoot(routes)
   ],
   exports:[RouterModule]
-})*/
+})
 export class AppRoutingModule { }
