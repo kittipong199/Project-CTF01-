@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DataUser } from '../data-user';
+// นำเข้า function เชื่อมต่อ api by BackendService
 import { BackendService } from '../backend.service';
 @Component({
   selector: 'app-register',
@@ -8,19 +9,24 @@ import { BackendService } from '../backend.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
+  // ตัวแปรสำหรับเก็บข้อมูล จาก API
   datUser: DataUser = new DataUser();
 
   isAdded = false;
 
+    //ใน constructor กำหนด ให้ apiService เป็นตัวแปรแบบ private และ เรียกใช้งาน backendService
   constructor(private backendService: BackendService) { }
 
   ngOnInit(): void {
+
   }
 
   newDataUser(): void{
     this.isAdded = false;
     this.datUser = new DataUser();
+    this.datUser.f_Name = "art";
+    this.datUser.l_Name = "hahaart";
+    this.save();
   }
 
   save() {
@@ -31,6 +37,7 @@ export class RegisterComponent implements OnInit {
         this.isAdded = true;
       },
       error => console.error(error));
+      console.log("test");
       this.datUser = new DataUser();
    
   }

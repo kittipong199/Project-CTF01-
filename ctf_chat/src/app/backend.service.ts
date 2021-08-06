@@ -6,12 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class BackendService {
-
-  private baseUrl = 'http://localhost;8082/api/project';
+                    //
+  private baseUrl = 'http://localhost:8082/api/users';
 
   constructor(private http: HttpClient) { }
 
-  getUser(email: String): Observable<any> {
+  getUser(_email: String): Observable<any> {
     return this.http.get(`${this.baseUrl}/$email`);
   }
 
