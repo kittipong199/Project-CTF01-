@@ -15,7 +15,7 @@ public class User {
 
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
 	@Column(name = "f_name")
@@ -26,22 +26,21 @@ public class User {
 	private String email;
 	@Column(name = "passw")
 	private String password;
-	@Column(name = "conf_passw")
-	private String conpassw;
+	
 	
 	
 	public User() {
 		
 	}
 	
-	public User(int id, String fName, String lName, String email, String password, String conpassw) {
+	public User(int id, String fName, String lName, String email, String password) {
 		super();
 		this.id = id;
 		this.fName = fName;
 		this.lName = lName;
 		this.email = email;
 		this.password = password;
-		this.conpassw = conpassw;
+		
 	}
 	
 
@@ -75,16 +74,13 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getConPassword() {
-		return conpassw;
-	}
-	public void setConPassword(String conpassw) {
-		this.conpassw = conpassw;
-	}
+	
 	
 	@Override
 	 public String toString() {
-	 return "[id" + id + ", f_name=" + fName + ", l_name=" + lName + ", email=" + email + ", passw="+password+", conf_passw"+conpassw+"]";
-	 }
+		return "[id" + id + ", f_name=" + fName + ", l_name=" + lName + ", email=" + email + ", passw="+password+"]";
+ }
+
+	
 
 }

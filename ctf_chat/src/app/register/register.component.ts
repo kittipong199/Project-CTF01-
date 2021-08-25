@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DataUser } from '../data-user';
+import { Router } from '@angular/router';
 // นำเข้า function เชื่อมต่อ api by BackendService
 import { BackendService } from '../backend.service';
 @Component({
@@ -15,34 +16,30 @@ export class RegisterComponent implements OnInit {
   isAdded = false;
 
     //ใน constructor กำหนด ให้ apiService เป็นตัวแปรแบบ private และ เรียกใช้งาน backendService
-  constructor(private backendService: BackendService) { }
+  constructor(private backendService: BackendService, private router: Router) { }
 
   ngOnInit(): void {
 
   }
 
-  newDataUser(): void{
-    this.isAdded = false;
-    this.datUser = new DataUser();
-    this.datUser.f_Name = "art";
-    this.datUser.l_Name = "hahaart";
-    this.save();
-  }
+  
 
   save() {
-    this.backendService.createUser(this.datUser)
-    .subscribe(
-      data => {
-        console.log(data);
-        this.isAdded = true;
-      },
-      error => console.error(error));
-      console.log("test");
-      this.datUser = new DataUser();
-   
+    this.backendService.createUser(this.datUser).subscribe( data => {
+      console.log(data);
+      alert("ลงข้อมูลสำเร็จแล้ว");
+      this.goToLogin();
+    },
+    error => console.log(error));
+    alert("ไม่มีข้อมูล โปรดตรวจสอบข้อมูลอีกครั้ง");
+  }
+
+  goToLogin(){
+    this.router.navigate(['/login']);
   }
 
   onSumbit() {
+    console.log(this.datUser);
     this.save();
   }
 

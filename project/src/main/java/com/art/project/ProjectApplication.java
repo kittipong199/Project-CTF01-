@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Bean;
 
 import com.art.project.register.modle.User;
 import com.art.project.register.modle.UserRepository;
+import com.art.project.chat.configration.WebSocketConfiguration;
+import com.art.project.chat.handler.ChatWebSocketHandler;
 
 @SpringBootApplication
 public class ProjectApplication {

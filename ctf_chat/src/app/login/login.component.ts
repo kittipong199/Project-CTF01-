@@ -1,5 +1,7 @@
-import { Component, OnInit , NgZone} from '@angular/core';
-import { Router,  } from '@angular/router';
+import { Component, OnInit , } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { BackendService } from '../backend.service';
+import { DataUser } from '../data-user';
 
 @Component({
   selector: 'app-login',
@@ -7,18 +9,36 @@ import { Router,  } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  
+  islogin: DataUser = new DataUser();
+
+  
+  invalidLogin = false;
+  loginSuccess = false;
 
   constructor(
+    private route: ActivatedRoute,
     private router: Router,
-    private ngZone: NgZone
-  ) { 
+    private backendService: BackendService
+    ) {   }
 
-  }
-
-  ngOnInit(): void {
-  }
-  onRegister(): any {
+  ngOnInit() {
+  //   this.backendService = this.route.snapshot.params['backendService']
     
-    this.ngZone.run(() => this.router.navigateByUrl('./register'));
-  } 
+  //   this.backendService.loginUserByEmail(this.backendService).subscribe( data => {
+  //     console.log(data);
+      
+     
+  //   },
+  //   error => console.log(error));
+  
+  // }
+
+  // Login() {
+  //   this.backendService.loginUserByEmail(this.backendService, this.islogin).subscribe(data => {
+  //     this.islogin = data;
+  //   }
+  //   , error => console.log(error));
+    
+   }
 }

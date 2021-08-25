@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatSliderModule } from '@angular/material/slider';
+// import { MatSliderModule } from '@angular/material/slider';
 import { CommonModule } from '@angular/common';
 
 
@@ -17,25 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 
 
-/*const routes: Routes =[
-  {
-    path: '',
-    component: HomeComponent
-  },
-  {
-    path:'login',
-    component: LoginComponent
-  },
-  {
-    path: 'register',
-    component: RegisterComponent
-  },
-  {
-    path:'chat',
-    component: ChatComponent
-  }
-];
-*/
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +31,7 @@ import { UserComponent } from './user/user.component';
   imports: [
     BrowserModule,
     FormsModule,
-    MatSliderModule,
+    // MatSliderModule,
     CommonModule,
     AppRoutingModule,
     HttpClientModule
@@ -59,6 +41,6 @@ import { UserComponent } from './user/user.component';
   
   bootstrap: [AppComponent],
  // exports:[RouterModule],
-  providers: [BackendService]
+  providers: []
 })
 export class AppModule { }
