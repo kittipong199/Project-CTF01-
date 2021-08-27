@@ -1,14 +1,37 @@
+body{
+  background-image: -moz-element();
+}
+
+header{
+
+  width:auto;
+  height: inherit;
+  border-style: solid;
+}
+
 .chat {
-  margin-top: 2rem;
+  margin-top: 0.5rem;
 
 }
 
 div.chat-content {
   border-radius: .25rem;
-  height: 40rem;
-  margin-bottom: 2rem;
+  height: 50rem;
+  margin-bottom: 1rem;
+  
 }
 
 .card {
   height: 100%;
+  background: #bdbaba;
+}
+.btn-primary{
+ background-color: rgb(27, 233, 27);
+}
+#input-user{
+  background-color: #78b2f3;
+}
+#input-message{
+  border-color: coral;
+  background-color: #d3cfcf;
 }

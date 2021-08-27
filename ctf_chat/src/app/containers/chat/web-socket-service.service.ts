@@ -11,7 +11,7 @@ export class WebSocketServiceService {
   constructor() { }
 
   public openWebSocket(){
-    this.webSocket = new WebSocket('http://localhost:8082/api/chat');
+    this.webSocket = new WebSocket('ws://localhost:8082/chat');
 
     this.webSocket.onopen = (event) => {
       console.log('Open: ', event);

@@ -12,6 +12,7 @@ export class BackendService {
   
                     //
   private baseUrl = 'http://localhost:8082/api/users';
+  
 
   constructor(private http: HttpClient) { }
 
@@ -32,12 +33,9 @@ export class BackendService {
     return this.http.put(`${this.baseUrl}/${email}`, value);
   }
 
-  
-  loginUserByEmail(email: string, password: string, datauser: DataUser): Observable<DataUser>{
-    return this.http.post<DataUser>(`${this.baseUrl}/${email},/${password}`, datauser);
-    
-    
-    
+   
+  loginUserByEmail(datauser: DataUser): Observable<DataUser>{
+    return this.http.post<DataUser>(`${this.baseUrl}/authenticate`, datauser);
+ 
   }
-  
 }

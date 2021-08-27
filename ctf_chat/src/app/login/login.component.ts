@@ -1,6 +1,7 @@
 import { Component, OnInit , } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BackendService } from '../backend.service';
+import { AuthService } from './auth.service';
 import { DataUser } from '../data-user';
 
 @Component({
@@ -10,35 +11,34 @@ import { DataUser } from '../data-user';
 })
 export class LoginComponent implements OnInit {
   
-  islogin: DataUser = new DataUser();
+  dataUser: DataUser = new DataUser();
+
 
   
   invalidLogin = false;
   loginSuccess = false;
 
   constructor(
-    private route: ActivatedRoute,
+   
     private router: Router,
     private backendService: BackendService
     ) {   }
 
   ngOnInit() {
-  //   this.backendService = this.route.snapshot.params['backendService']
-    
-  //   this.backendService.loginUserByEmail(this.backendService).subscribe( data => {
-  //     console.log(data);
-      
-     
-  //   },
-  //   error => console.log(error));
-  
-  // }
-
-  // Login() {
-  //   this.backendService.loginUserByEmail(this.backendService, this.islogin).subscribe(data => {
-  //     this.islogin = data;
-  //   }
-  //   , error => console.log(error));
     
    }
+
+   login() {
+    this.backendService.loginUserByEmail(this.dataUser)
+      .subscribe( data => {
+          console.log(data);
+          this.router.navigate(['/chat']);
+          alert("loginpass");
+        }, 
+        error => {
+            console.log(error);
+            alert('ไม่สามารถ login ได้');
+        });
+  }
+  
 }
