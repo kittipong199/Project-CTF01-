@@ -27,10 +27,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     
    }
-
+  // Verstion 1 from พี่กิต 
    login() {
-    this.backendService.loginUserByEmail(this.dataUser)
-      .subscribe( data => {
+    this.backendService.loginUserByEmail(this.dataUser).subscribe( data => {
+      
           console.log(data);
           this.router.navigate(['/chat']);
           alert("loginpass");

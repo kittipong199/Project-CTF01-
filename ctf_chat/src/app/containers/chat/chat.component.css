@@ -11,13 +11,14 @@ header{
 
 .chat {
   margin-top: 0.5rem;
+  background-color: blanchedalmond;
 
 }
 
 div.chat-content {
   border-radius: .25rem;
   height: 50rem;
-  margin-bottom: 1rem;
+  margin-top: 20px;
   
 }
 
