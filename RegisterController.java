@@ -49,30 +49,12 @@ public class RegisterController {
   // create user rest api
   @PostMapping(value = "/users")
   public User createUser(@RequestBody User user) {
-    
-	// Encrypt password before save
-	  String encryptedPassword = new BCryptPasswordEncoder().encode(user.getPassword());
-	  user.setPassword(encryptedPassword);
-	  
-	  return userRepository.save(user); // แบบเดิม
 
+    // Encrypt password before save
+    String encryptedPassword = new BCryptPasswordEncoder().encode(user.getPassword());
+    user.setPassword(encryptedPassword);
 
-    //// // Encrypt Password
-    // user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
-    //
-    //
-    // try {
-    // // Create user in database
-    // User user = userRepository.save(user);
-    //
-    // // Hide password in response
-    // user.setPassword("");
-    //
-    // return new ResponseEntity<>(user, HttpStatus.CREATED);
-    // } catch (Exception e) {
-    // return new ResponseEntity<>(null, HttpStatus.EXPECTATION_FAILED);
-    // }
-    // }
+    return userRepository.save(user); // แบบเดิม
   }
 
 
@@ -103,20 +85,16 @@ public class RegisterController {
         return new ResponseEntity<>(null, HttpStatus.EXPECTATION_FAILED);
       }
 
-      // Compare encrypted password
-      // note:
-      // encoder.matches() - will compare
-      // - raw not-encrypted password (from user request) with
-      // - encrypted password (from database)
-      // BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-      
+
+      // boolean isPasswordMatch = user1.getPassword().equals(user.getPassword()); // แบบเดิม
+
       // Compare encrypted password
       BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-      boolean isPasswordMatch = encoder.matches(user.getPassword(), user1.getPassword());
+      boolean isPasswordMatch = encoder.matches(user.getPassword(), user1.getEmail());
 
       if (isPasswordMatch) {
         // password matched - Hide password in response
-        // user1.setPassword("");
+        user1.setPassword("");
         return new ResponseEntity<>(user1, HttpStatus.OK);
       } else {
         // password not matched - response failed

@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         }, 
         error => {
             console.log(error);
-            alert('ไม่สามารถ login ได้');
+            alert('ไม่สามารถ login ได้ ตรวจ E-mail and Password');
         });
   }
   
